@@ -4,6 +4,7 @@ import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -28,10 +29,10 @@ public class Concessionario {
     @Size(min = 1)
     private String citta;
     @OneToMany(mappedBy = "concessionario")
-    private Set<Auto> listaAuto;
+    private Set<Auto> listaAuto= new HashSet<>();
 
     @OneToMany(mappedBy = "concessionario")
-    private Set<Dipendente> listaDipendenti;
+    private Set<Dipendente> listaDipendenti= new HashSet<>();
 
 
     public Set<Auto> getListaAuto() {

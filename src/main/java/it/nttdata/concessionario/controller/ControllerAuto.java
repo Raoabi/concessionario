@@ -17,8 +17,13 @@ public class ControllerAuto {
     @GetMapping("/automobili")
     public String getAuto(Model model){
         model.addAttribute("automobili",autoRepository.findAll());
-        
+
         return "auto";
+    }
+    @GetMapping("/listaauto")
+    public String getAllAutomobili(Model model){
+        model.addAttribute("listaauto",autoRepository.findAll());
+        return "listaauto";
     }
 
 }

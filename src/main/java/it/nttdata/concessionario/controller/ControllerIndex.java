@@ -6,16 +6,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class ControllerConcessionario {
+public class ControllerIndex {
     private final ConcessionarioRepository concessionarioRepository;
 
-    public ControllerConcessionario(ConcessionarioRepository concessionarioRepository) {
+
+    public ControllerIndex(ConcessionarioRepository concessionarioRepository) {
         this.concessionarioRepository = concessionarioRepository;
     }
-
-    @GetMapping("/concessionari")
-    public String getConcessionari(Model model){
-        model.addAttribute("concessionari", concessionarioRepository.findAll());
-        return "concessionari";
+    @GetMapping("/")
+    public String getIndex(Model model){
+        model.addAttribute("numeroRegioni",concessionarioRepository.countRegion());
+        return "index";
     }
 }
